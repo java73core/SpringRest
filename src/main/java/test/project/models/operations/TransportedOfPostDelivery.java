@@ -1,11 +1,20 @@
 package test.project.models.operations;
 
+import lombok.*;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
 
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "TransportedOfPostDelivery")
 public class TransportedOfPostDelivery {
@@ -19,23 +28,4 @@ public class TransportedOfPostDelivery {
 
     @Column(name = "dateofDeparture")
     private Date dateOfDeparture;
-
-    public TransportedOfPostDelivery() {
-    }
-
-    public Date getDateOfArrival() {
-        return dateOfArrival;
-    }
-
-    public void setDateOfArrival(Date dateOfArrival) {
-        this.dateOfArrival = dateOfArrival;
-    }
-
-    public Date getDateOfDeparture() {
-        return dateOfDeparture;
-    }
-
-    public void setDateOfDeparture(Date dateOfDeparture) {
-        this.dateOfDeparture = dateOfDeparture;
-    }
 }

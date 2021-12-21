@@ -1,17 +1,29 @@
 package test.project.models;
 
+
+import lombok.*;
+import org.hibernate.Hibernate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Objects;
 
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "postoffice")
 public class PostOffice {
 
     @Id
     @Column(name = "postoffice_id", nullable = false)
-    private long postIndex;
+    private Integer postIndex;
 
     @Column(name = "postname")
     private String postName;
@@ -19,36 +31,16 @@ public class PostOffice {
     @Column(name = "postaddress")
     private String postAddress;
 
-    public PostOffice() {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        PostOffice that = (PostOffice) o;
+        return postIndex != null && Objects.equals(postIndex, that.postIndex);
     }
 
-    public long getPostIndex() {
-        return postIndex;
-    }
-
-    public void setPostIndex(int postIndex) {
-        this.postIndex = postIndex;
-    }
-
-    public String getPostName() {
-        return postName;
-    }
-
-    public void setPostName(String postName) {
-        this.postName = postName;
-    }
-
-    public String getPostAddress() {
-        return postAddress;
-    }
-
-    public void setPostAddress(String postAddress) {
-        this.postAddress = postAddress;
-    }
-
-    public PostOffice(int postIndex, String postName, String postAddress) {
-        this.postIndex = postIndex;
-        this.postName = postName;
-        this.postAddress = postAddress;
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
     }
 }

@@ -1,11 +1,20 @@
 package test.project.models.operations;
 
+import lombok.*;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
 
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "RegistrationOfPostDelivery")
 public class RegistrationOfPostDelivery {
@@ -15,11 +24,4 @@ public class RegistrationOfPostDelivery {
 
     @Column(name = "dateOfRegistration")
     private Date dateOfRegistration;
-
-    public void setDateOfRegistration(Date dateOfRegistration) {
-        this.dateOfRegistration = dateOfRegistration;
-    }
-
-    public RegistrationOfPostDelivery() {
-    }
 }
