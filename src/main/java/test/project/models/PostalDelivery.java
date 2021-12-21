@@ -3,14 +3,14 @@ package test.project.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "PostalDelivery")
+@Table(name = "postaldelivery")
 public class PostalDelivery {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "postaldelivery_id", nullable = false)
     private int id;
 
-    @Column(name = "typeOfDelivery")
+    @Column(name = "type_of_delivery")
     @Enumerated(EnumType.STRING)
     private TypeOfDelivery typeOfDelivery;
 
@@ -23,6 +23,9 @@ public class PostalDelivery {
     @Column(name = "recipientsName")
     private String recipientsName;
 
+    public PostalDelivery() {
+    }
+
     public int getId() {
         return id;
     }
@@ -33,10 +36,6 @@ public class PostalDelivery {
 
     public TypeOfDelivery getTypeOfDelivery() {
         return typeOfDelivery;
-    }
-
-    public void setTypeOfDelivery(TypeOfDelivery typeOfDelivery) {
-        this.typeOfDelivery = typeOfDelivery;
     }
 
     public int getIndexRecipient() {

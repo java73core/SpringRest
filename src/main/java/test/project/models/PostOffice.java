@@ -6,20 +6,23 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "PostOffice")
+@Table(name = "postoffice")
 public class PostOffice {
 
     @Id
-    @Column(name = "postIndex")
-    private int postIndex;
+    @Column(name = "postoffice_id", nullable = false)
+    private long postIndex;
 
-    @Column(name = "postName")
+    @Column(name = "postname")
     private String postName;
 
-    @Column(name = "postAddress")
+    @Column(name = "postaddress")
     private String postAddress;
 
-    public int getPostIndex() {
+    public PostOffice() {
+    }
+
+    public long getPostIndex() {
         return postIndex;
     }
 
